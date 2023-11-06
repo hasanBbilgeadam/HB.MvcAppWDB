@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+}
+
+@model Kategori
+<h1>Add</h1>
+
+
+@if (TempData["error"] != null)
+{
+
+    <h2 class="text-danger">@TempData["error"]</h2>
+}
+<form asp-action="add" method="post">
+
+    <input asp-for="Name" />
+
+    <button type="submit">ekle</button>
+    
+</form>
