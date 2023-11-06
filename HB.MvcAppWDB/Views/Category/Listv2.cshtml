@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Listv2";
+}
+
+<h1>Listv2</h1>
+
+@model List<Kategori>
+
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>ıd</th>
+            <th>name</th>
+            <th>kitaplar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+
+                   <td>
+                        @{
+                            <ul>
+                            @foreach (var kitap in item.Kitaplar)
+                            {
+                                <li>@kitap.KitapAdı</li>
+                            }
+                            </ul>
+                        }
+                   </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

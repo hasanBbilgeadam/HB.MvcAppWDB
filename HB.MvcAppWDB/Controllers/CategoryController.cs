@@ -1,6 +1,7 @@
 ﻿using HB.MvcAppWDB.Context;
 using HB.MvcAppWDB.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HB.MvcAppWDB.Controllers
 {
@@ -40,6 +41,12 @@ namespace HB.MvcAppWDB.Controllers
         public IActionResult List()
         {
             return View(_context.Kategorler.ToList()); ;
+        }
+
+
+        public IActionResult Listv2()
+        {
+            return View(_context.Kategorler.Include(x=>x.Kitaplar).ToList()); ;
         }
     }
 }

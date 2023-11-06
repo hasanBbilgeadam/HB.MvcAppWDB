@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+}
+
+ @model Kitap
+
+<h1>Add</h1>
+
+
+<form asp-action="Add" method="post">
+
+
+    <input asp-for="KitapAdı" placeholder="KitapAdı" />
+    <input asp-for="BasımTarihi" placeholder="BasımTarihi" />
+    <input asp-for="YazarAdı" placeholder="YazarAdı" />
+
+
+        <select asp-items="ViewBag.data" asp-for="KategoriID">
+
+        <option selected disabled>Bir kategori seçiniz</option>
+        </select>
+
+        <button type="submit">ekle</button>
+</form>

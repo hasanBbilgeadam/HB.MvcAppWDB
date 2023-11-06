@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "List";
+}
+
+@model List<Kitap>
+<h1>List</h1>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Yazar Adı</th>
+            <th>Kitap Adı</th>
+            <th>Basım Tarihi</th>
+            <th>Kategori</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                
+                    <td>@item.YazarAdı</td>
+                    <td>@item.KitapAdı</td>
+                    <td>@item.BasımTarihi.Value.ToString("dddd, dd MMMM yyyy")</td>
+                    <td>@item.Kategori.Name</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
