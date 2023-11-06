@@ -48,5 +48,14 @@ namespace HB.MvcAppWDB.Controllers
         {
             return View(_context.Kategorler.Include(x=>x.Kitaplar).ToList()); ;
         }
+
+
+        public IActionResult GetBooks(string id)
+        {
+
+            var data =  _context.Kitaplar.Where(x => x.YazarAdı == id).ToList();
+
+            return View(data);
+        }
     }
 }
