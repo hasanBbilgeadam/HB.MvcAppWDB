@@ -57,5 +57,14 @@ namespace HB.MvcAppWDB.Controllers
 
             return View(data);
         }
+
+        public IActionResult getbyname(string id)
+        {
+
+            var data = _context.Kitaplar.Where(x => x.YazarAdı == id).ToList();
+
+           
+            return PartialView("~/Views/shared/_YazarPartialView.cshtml",data);
+        }
     }
 }

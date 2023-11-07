@@ -41,5 +41,31 @@ namespace HB.MvcAppWDB.Controllers
             View(_context.Kitaplar.Include(x => x.Kategori).ToList());
 
 
+        public IActionResult Update(int id)
+        {
+             var data = _context.Kitaplar.Find(id);
+
+            ViewBag.kategoriler = _context.Kategorler.Select(x => new SelectListItem()
+            {
+                Text = x.Name,
+                Value = x.Id.ToString(),
+                Selected =x.Id == data.KategoriID
+                
+            }).ToList();
+
+
+            return View(data);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Kitap kitap)
+        {
+
+
+            _context.Update(kitap);
+            _context.SaveChanges();
+            return RedirectToAction("List");
+        }
+
     }
 }

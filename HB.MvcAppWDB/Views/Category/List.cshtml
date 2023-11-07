@@ -8,7 +8,8 @@
 <div class="mb-3 border">
 
 
-    <form asp-action="GetBooks">  <input name="id" placeholder="bir yazar ismi giriniz" />
+    <form asp-action="GetBooks">
+        <input name="id" placeholder="bir yazar ismi giriniz" />
         <button type="submit">ara</button>
     </form>
 
@@ -27,11 +28,65 @@
 
             foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Name</td>
-                </tr>
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                    </tr>
             }
         }
     </tbody>
 </table>
+
+
+
+<div class="border shadow m-4 p-3">
+
+
+    <input id="SearchInput" type="text" />
+    <button type="button" id="SearchBtn">Arama Yap</button>
+
+    <div id="result" class="p-3 m-3 border shadow bg-info">
+    </div>
+
+
+</div>
+
+
+@section Scripts{
+
+    <script>
+
+        $(function () {
+
+
+
+            $('#SearchBtn').on('click', function () {
+
+
+                var data = $('#SearchInput').val();
+
+
+
+                //ıactionresult getbyname(string id)
+
+                var url = '/category/getbyname/' + data;
+
+                $.get(url, function (data) {
+
+
+                    var htmlResult = data;
+
+                    $('#result').empty();
+                    $('#result').append(htmlResult);
+
+
+                })
+
+            });
+
+
+        });
+
+    </script>
+
+}

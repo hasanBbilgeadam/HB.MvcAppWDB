@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+}
+@model Kitap
+
+<form asp-action="Update" method="post">
+
+    <input asp-for="Id" type="hidden" />
+    <br />
+
+    <input asp-for="KitapAdı"  />
+    <br />
+
+    <input asp-for=" YazarAdı"  />
+    <br />
+
+    <input asp-for=" BasımTarihi"  />
+
+    <br />
+
+    <select asp-for="KategoriID" asp-items="ViewBag.kategoriler">
+
+    </select>
+    <br />
+
+    <button type="submit">Güncelle</button>
+</form>
+
