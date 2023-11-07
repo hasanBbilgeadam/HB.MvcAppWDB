@@ -37,8 +37,15 @@ namespace HB.MvcAppWDB.Controllers
             return RedirectToAction("List");
         }
 
-        public IActionResult List() => 
-            View(_context.Kitaplar.Include(x => x.Kategori).ToList());
+        public IActionResult List()
+        {
+            
+
+            // kategorisi null olan kitaplar gelmiyor
+            //bunun için join kodunda değişiklik yapılması gerekiyor !!!!!
+            return View(_context.Kitaplar.Include(x => x.Kategori).ToList()) ;
+        }
+       
 
 
         public IActionResult Update(int id)
@@ -64,6 +71,16 @@ namespace HB.MvcAppWDB.Controllers
 
             _context.Update(kitap);
             _context.SaveChanges();
+            return RedirectToAction("List");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var data =  _context.Kitaplar.Find(id);
+            _context.Kitaplar.Remove(data);
+            _context.SaveChanges();
+
+
             return RedirectToAction("List");
         }
 

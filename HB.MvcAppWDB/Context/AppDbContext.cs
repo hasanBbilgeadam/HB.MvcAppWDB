@@ -18,8 +18,9 @@ namespace HB.MvcAppWDB.Context
         {
             modelBuilder.Entity<Product>().HasKey(x => x.Id);
 
+            modelBuilder.Entity<Kitap>().Property(x => x.KategoriID).IsRequired(false);    
 
-            modelBuilder.Entity<Kitap>().HasOne(x => x.Kategori).WithMany(x => x.Kitaplar).HasForeignKey(x => x.KategoriID);
+            modelBuilder.Entity<Kitap>().HasOne(x => x.Kategori).WithMany(x => x.Kitaplar).HasForeignKey(x => x.KategoriID).OnDelete(DeleteBehavior.SetNull);
 
 
 

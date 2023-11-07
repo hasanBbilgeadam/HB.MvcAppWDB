@@ -66,5 +66,27 @@ namespace HB.MvcAppWDB.Controllers
            
             return PartialView("~/Views/shared/_YazarPartialView.cshtml",data);
         }
+
+        public IActionResult Update(int id)
+        {
+            return View(_context.Kategorler.Find(id));
+        }
+
+        [HttpPost]
+        public IActionResult Update(Kategori kategori)
+        {
+            _context.Update(kategori);
+            _context.SaveChanges();
+            return RedirectToAction("List");
+        }
+        public IActionResult Delete(int id)
+        {
+            var data =  _context.Kategorler.Find(id);
+            _context.Kategorler.Remove(data);
+            _context.SaveChanges();
+            return RedirectToAction("List");
+        }
+
+
     }
 }

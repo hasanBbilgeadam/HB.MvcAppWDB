@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+}
+
+@model Kategori
+<h1>Update</h1>
+
+
+<form asp-action="update" method="post">
+
+
+    <input type="hidden" asp-for="Id"/>
+    <input  asp-for="Name"/>
+    <button type="submit">Güncelle</button>
+</form>

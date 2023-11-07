@@ -21,6 +21,7 @@
         <tr>
             <th>ıd</th>
             <th>name</th>
+            <th>işlemer</th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +32,8 @@
                     <tr>
                         <td>@item.Id</td>
                         <td>@item.Name</td>
+                        <td><a class="btn btn-warning" asp-action="update" asp-route-id="@item.Id">Update</a></td>
+                        <td><a class="btn btn-danger" asp-action="delete" asp-route-id="@item.Id">Delete</a></td>
                     </tr>
             }
         }
