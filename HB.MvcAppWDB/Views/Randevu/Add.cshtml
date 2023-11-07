@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+}
+@model Randevu
+<h1>Add</h1>
+
+<form asp-action="add" method="post">
+
+    <input asp-for="MüşteriAdı" placeholder="müşteri adı" /> <br />
+    <input asp-for="RandevuTarih"  /> <br />
+
+    <select asp-items="ViewBag.islem">
+    </select>
+
+    <button type="submit">ekle</button>
+</form>

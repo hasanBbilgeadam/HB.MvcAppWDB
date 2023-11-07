@@ -8,6 +8,8 @@ namespace HB.MvcAppWDB.Context
         public DbSet<Product> Products { get; set; }
         public DbSet<Kitap> Kitaplar { get; set; }
         public DbSet<Kategori> Kategorler { get; set; }
+        public DbSet<Randevu> Randevus { get; set; }
+
         public AppDbContext(DbContextOptions<AppDbContext> option):base(option)
         {
                 
